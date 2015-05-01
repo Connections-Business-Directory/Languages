@@ -36,17 +36,9 @@ if ( ! class_exists('Connections_Languages') ) {
 			self::defineConstants();
 			self::loadDependencies();
 
-			// register_activation_hook( CNIL_BASE_NAME . '/connections_languages.php', array( __CLASS__, 'activate' ) );
-			// register_deactivation_hook( CNIL_BASE_NAME . '/connections_languages.php', array( __CLASS__, 'deactivate' ) );
-
-			/*
-			 * Load translation. NOTE: This should be ran on the init action hook because
-			 * function calls for translatable strings, like __() or _e(), execute before
-			 * the language files are loaded will not be loaded.
-			 *
-			 * NOTE: Any portion of the plugin w/ translatable strings should be bound to the init action hook or later.
-			 */
-			add_action( 'init', array( __CLASS__ , 'loadTextdomain' ) );
+			// This should run on the `plugins_loaded` action hook. Since the extension loads on the
+			// `plugins_loaded action hook, call immediately.
+			self::loadTextdomain();
 
 			// Register the metabox and fields.
 			add_action( 'cn_metabox', array( __CLASS__, 'registerMetabox') );
