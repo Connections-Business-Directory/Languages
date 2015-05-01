@@ -204,7 +204,7 @@ if ( ! class_exists('Connections_Languages') ) {
 		public static function registerMetabox() {
 
 			$atts = array(
-				'name'     => 'Languages',
+				'name'     => __( 'Languages', 'connections_languages' ),
 				'id'       => 'languages',
 				'title'    => __( 'Languages', 'connections_languages' ),
 				'context'  => 'side',
@@ -233,7 +233,7 @@ if ( ! class_exists('Connections_Languages') ) {
 		 */
 		public static function settingsOption( $blocks ) {
 
-			$blocks['languages'] = 'Languages';
+			$blocks['languages'] = __( 'Languages', 'connections_languages' );
 
 			return $blocks;
 		}
