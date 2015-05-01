@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Languages
  * Plugin URI:        http://connections-pro.com
  * Description:       An extension for the Connections plugin which adds a metabox for languages.
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -64,7 +64,7 @@ if ( ! class_exists('Connections_Languages') ) {
 		 */
 		private static function defineConstants() {
 
-			define( 'CNLANG_CURRENT_VERSION', '1.0.2' );
+			define( 'CNLANG_CURRENT_VERSION', '1.0.1' );
 			define( 'CNLANG_DIR_NAME', plugin_basename( dirname( __FILE__ ) ) );
 			define( 'CNLANG_BASE_NAME', plugin_basename( __FILE__ ) );
 			define( 'CNLANG_PATH', plugin_dir_path( __FILE__ ) );
