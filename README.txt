@@ -85,7 +85,7 @@ None yet....
 
 [Screenshots can be found here.](http://connections-pro.com/add-on/languages/)
 
-1. The metabox containging the list of languages that can be assigned to a directory entry.
+1. The metabox containing the list of languages that can be assigned to a directory entry.
 2. The widget output on the frontend of the site when viewing a single directory entry.
 
 == Changelog ==
