@@ -90,9 +90,14 @@ None yet....
 
 == Changelog ==
 
+= 1.1 06/27/2015 =
+* NEW: Add three more language per user request, Filipino, Indonesian and Slovenian.
+* TWEAK: Use esc_html() rather than eac_attr() for escaping the language when displaying it.
+* DEV: Update .gitignore.
+
 = 1.0.1 05/01/2015 =
 * BUG: Load plugin textdomain on plugins_loaded action hook.
-* BUG: Add a couple missing textdomains.
+* BUG: Add a couple missing text domains.
 * I18N: Add POT file.
 
 = 1.0 09/02/2014 =
