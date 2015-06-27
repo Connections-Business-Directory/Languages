@@ -68,7 +68,7 @@ None yet....
 
 == Changelog ==
 
-= 1.0.1 05/01/2015
+= 1.0.1 05/01/2015 =
 * BUG: Load plugin textdomain on plugins_loaded action hook.
 * BUG: Add a couple missing textdomains.
 * I18N: Add POT file.
