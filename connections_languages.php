@@ -265,7 +265,7 @@ if ( ! class_exists('Connections_Languages') ) {
 
 				if ( $language = self::language( $code ) ) {
 
-					printf( '<li class="cn-language cn-%1$s">%2$s</li>', esc_attr( $code ), esc_attr( $language ) );
+					printf( '<li class="cn-language cn-%1$s">%2$s</li>', esc_attr( $code ), esc_html( $language ) );
 				}
 
 			}
