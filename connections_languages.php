@@ -104,9 +104,6 @@ if ( ! class_exists('Connections_Languages') ) {
 					self::$basename,
 					'load'
 				);
-
-				// register_activation_hook( CNIL_BASE_NAME . '/connections_income_levels.php', array( __CLASS__, 'activate' ) );
-				// register_deactivation_hook( CNIL_BASE_NAME . '/connections_income_levels.php', array( __CLASS__, 'deactivate' ) );
 			}
 
 			return self::$instance;
@@ -158,6 +155,9 @@ if ( ! class_exists('Connections_Languages') ) {
 		 * @since  1.1
 		 */
 		private static function hooks() {
+
+			// register_activation_hook( Connections_Languages()->pluginPath() . 'connections_income_languages.php', array( __CLASS__, 'activate' ) );
+			// register_deactivation_hook( Connections_Languages()->pluginPath() . 'connections_income_languages.php', array( __CLASS__, 'deactivate' ) );
 
 			// Register the metabox and fields.
 			add_action( 'cn_metabox', array( __CLASS__, 'registerMetabox') );
