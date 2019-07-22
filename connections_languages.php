@@ -33,14 +33,131 @@ if ( ! class_exists('Connections_Languages') ) {
 
 		const VERSION = '1.1';
 
-		public function __construct() {
+		/**
+		 * @var Connections_Languages Stores the instance of this class.
+		 *
+		 * @access private
+		 * @since 1.1
+		 */
+		private static $instance;
 
-			self::defineConstants();
-			self::loadDependencies();
+		/**
+		 * @var string The absolute path this this file.
+		 *
+		 * @access private
+		 * @since 1.1
+		 */
+		private static $file = '';
 
-			// This should run on the `plugins_loaded` action hook. Since the extension loads on the
-			// `plugins_loaded action hook, call immediately.
-			self::loadTextdomain();
+		/**
+		 * @var string The URL to the plugin's folder.
+		 *
+		 * @access private
+		 * @since 1.1
+		 */
+		private static $url = '';
+
+		/**
+		 * @var string The absolute path to this plugin's folder.
+		 *
+		 * @access private
+		 * @since 1.1
+		 */
+		private static $path = '';
+
+		/**
+		 * @var string The basename of the plugin.
+		 *
+		 * @access private
+		 * @since 1.0
+		 */
+		private static $basename = '';
+
+		public function __construct() { /* Do nothing here */ }
+
+		/**
+		 * @access public
+		 * @since  1.1
+		 *
+		 * @return Connections_Languages
+		 */
+		public static function instance() {
+
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Connections_Languages ) ) {
+
+				self::$instance = $self = new self;
+
+				self::$file     = __FILE__;
+				self::$url      = plugin_dir_url( self::$file );
+				self::$path     = plugin_dir_path( self::$file );
+				self::$basename = plugin_basename( self::$file );
+
+				self::loadDependencies();
+				self::hooks();
+
+				/**
+				 * This should run on the `plugins_loaded` action hook. Since the extension loads on the
+				 * `plugins_loaded` action hook, load immediately.
+				 */
+				cnText_Domain::register(
+					'connections_languages',
+					self::$basename,
+					'load'
+				);
+
+				// register_activation_hook( CNIL_BASE_NAME . '/connections_income_levels.php', array( __CLASS__, 'activate' ) );
+				// register_deactivation_hook( CNIL_BASE_NAME . '/connections_income_levels.php', array( __CLASS__, 'deactivate' ) );
+			}
+
+			return self::$instance;
+		}
+
+		/**
+		 * Gets the basename of a plugin.
+		 *
+		 * @access public
+		 * @since  1.1
+		 *
+		 * @return string
+		 */
+		public function pluginBasename() {
+
+			return self::$basename;
+		}
+
+		/**
+		 * Get the absolute directory path (with trailing slash) for the plugin.
+		 *
+		 * @access public
+		 * @since  1.1
+		 *
+		 * @return string
+		 */
+		public function pluginPath() {
+
+			return self::$path;
+		}
+
+		/**
+		 * Get the URL directory path (with trailing slash) for the plugin.
+		 *
+		 * @access public
+		 * @since  1.1
+		 *
+		 * @return string
+		 */
+		public function pluginURL() {
+
+			return self::$url;
+		}
+
+		/**
+		 * Register all the hooks that makes this thing run.
+		 *
+		 * @access private
+		 * @since  1.1
+		 */
+		private static function hooks() {
 
 			// Register the metabox and fields.
 			add_action( 'cn_metabox', array( __CLASS__, 'registerMetabox') );
@@ -57,23 +174,6 @@ if ( ! class_exists('Connections_Languages') ) {
 		}
 
 		/**
-		 * Define the constants.
-		 *
-		 * @access  private
-		 * @static
-		 * @since  1.0
-		 * @return void
-		 */
-		private static function defineConstants() {
-
-			define( 'CNLANG_CURRENT_VERSION', '1.1' );
-			define( 'CNLANG_DIR_NAME', plugin_basename( dirname( __FILE__ ) ) );
-			define( 'CNLANG_BASE_NAME', plugin_basename( __FILE__ ) );
-			define( 'CNLANG_PATH', plugin_dir_path( __FILE__ ) );
-			define( 'CNLANG_URL', plugin_dir_url( __FILE__ ) );
-		}
-
-		/**
 		 * The widget.
 		 *
 		 * @access private
@@ -83,50 +183,12 @@ if ( ! class_exists('Connections_Languages') ) {
 		 */
 		private static function loadDependencies() {
 
-			require_once( CNLANG_PATH . 'includes/class.widgets.php' );
+			require_once( Connections_Languages()->pluginPath() . 'includes/class.widgets.php' );
 		}
 
 		public static function activate() {}
 
 		public static function deactivate() {}
-
-		/**
-		 * Load the plugin translation.
-		 *
-		 * Credit: Adapted from Ninja Forms / Easy Digital Downloads.
-		 *
-		 * @access private
-		 * @since  1.0
-		 * @static
-		 * @uses   apply_filters()
-		 * @uses   get_locale()
-		 * @uses   load_textdomain()
-		 * @uses   load_plugin_textdomain()
-		 * @return void
-		 */
-		public static function loadTextdomain() {
-
-			// Plugin's unique textdomain string.
-			$textdomain = 'connections_languages';
-
-			// Filter for the plugin languages folder.
-			$languagesDirectory = apply_filters( 'connections_languages_lang_dir', CNLANG_DIR_NAME . '/languages/' );
-
-			// The 'plugin_locale' filter is also used by default in load_plugin_textdomain().
-			$locale = apply_filters( 'plugin_locale', get_locale(), $textdomain );
-
-			// Filter for WordPress languages directory.
-			$wpLanguagesDirectory = apply_filters(
-				'connections_languages_wp_lang_dir',
-				WP_LANG_DIR . '/connections-languages/' . sprintf( '%1$s-%2$s.mo', $textdomain, $locale )
-			);
-
-			// Translations: First, look in WordPress' "languages" folder = custom & update-secure!
-			load_textdomain( $textdomain, $wpLanguagesDirectory );
-
-			// Translations: Secondly, look in plugin's "languages" folder = default.
-			load_plugin_textdomain( $textdomain, FALSE, $languagesDirectory );
-		}
 
 		/**
 		 * Defines the language options.
@@ -279,7 +341,7 @@ if ( ! class_exists('Connections_Languages') ) {
 
 			if ( class_exists('connectionsLoad') ) {
 
-					return new Connections_Languages();
+					return Connections_Languages::instance();
 
 			} else {
 
