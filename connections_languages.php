@@ -242,16 +242,12 @@ if ( ! class_exists('Connections_Languages') ) {
 		 *
 		 * Called by the cn_meta_output_field-languages action in cnOutput->getMetaBlock().
 		 *
-		 * @access  private
+		 * @access private
 		 * @since  1.0
-		 * @static
-		 * @uses   esc_attr()
-		 * @uses   language()
-		 * @param  string $id    The field id.
-		 * @param  array  $value The language codes (ISO 639-2, the alpha-3 code).
-		 * @param  array  $atts  The shortcode atts array passed from the calling action.
-		 *
-		 * @return string
+
+		 * @param string $id    The field id.
+		 * @param array  $value The language codes (ISO 639-2, the alpha-3 code).
+		 * @param array  $atts  The shortcode atts array passed from the calling action.
 		 */
 		public static function block( $id, $value, $object = NULL, $atts ) {
 
@@ -277,7 +273,7 @@ if ( ! class_exists('Connections_Languages') ) {
 	 * @access public
 	 * @since 1.0
 	 *
-	 * @return mixed object | bool
+	 * @return Connections_Languages|false
 	 */
 	function Connections_Languages() {
 
