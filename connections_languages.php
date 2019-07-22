@@ -31,6 +31,8 @@ if ( ! class_exists('Connections_Languages') ) {
 
 	class Connections_Languages {
 
+		const VERSION = '1.1';
+
 		public function __construct() {
 
 			self::defineConstants();
