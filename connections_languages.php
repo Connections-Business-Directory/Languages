@@ -285,10 +285,9 @@ if ( ! class_exists('Connections_Languages') ) {
 
 				add_action(
 					'admin_notices',
-					 create_function(
-						 '',
-						'echo \'<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Languages.</p></div>\';'
-						)
+					function() {
+						echo '<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Languages.</p></div>';
+					}
 				);
 
 				return FALSE;
