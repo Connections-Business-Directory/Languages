@@ -129,7 +129,7 @@ if ( ! class_exists('Connections_Languages') ) {
 		/**
 		 * Defines the language options.
 		 *
-		 * Default list is the most spoken lanuages in the world.
+		 * Default list is the most spoken languages in the world.
 		 * @url http://www.nationsonline.org/oneworld/most_spoken_languages.htm
 		 * @url http://www.nationsonline.org/oneworld/languages.htm
 		 *
