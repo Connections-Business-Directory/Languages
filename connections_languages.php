@@ -84,15 +84,9 @@ if ( ! class_exists('Connections_Languages') ) {
 			require_once( CNLANG_PATH . 'includes/class.widgets.php' );
 		}
 
+		public static function activate() {}
 
-		public static function activate() {
-
-
-		}
-
-		public static function deactivate() {
-
-		}
+		public static function deactivate() {}
 
 		/**
 		 * Load the plugin translation.
