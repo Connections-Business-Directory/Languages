@@ -51,7 +51,7 @@ if ( ! class_exists('Connections_Languages') ) {
 			add_action( 'cn_output_meta_field-languages', array( __CLASS__, 'block' ), 10, 4 );
 
 			// Register the widget.
-			add_action( 'widgets_init', create_function( '', 'register_widget( "CN_Languages_Widget" );' ) );
+			add_action( 'widgets_init', array( 'CN_Income_Levels_Widget', 'register' ) );
 		}
 
 		/**

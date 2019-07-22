@@ -28,6 +28,19 @@ class CN_Languages_Widget extends WP_Widget {
 	}
 
 	/**
+	 * Registers the widget with the WordPress Widget API.
+	 *
+	 * @access public
+	 * @since  1.1
+	 *
+	 * @return void
+	 */
+	public static function register() {
+
+		register_widget( __CLASS__ );
+	}
+
+	/**
 	 * Logic for handling updates from the widget form.
 	 *
 	 * @access  private
