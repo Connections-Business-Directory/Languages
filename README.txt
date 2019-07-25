@@ -21,7 +21,7 @@ The languages of an entry can optionally be shown as a content block within a te
 
 [Checkout the screenshots.](http://connections-pro.com/add-on/languages/)
 
-Here are some other great **free extensions** (with more on the way) that enhance your experience with the business directory:
+Here are some other great **free extensions** (with more on the way) that enhance your experience with with Connections Business Directory:
 
 **Utility**
 
