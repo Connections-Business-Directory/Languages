@@ -91,6 +91,20 @@ None yet....
 
 == Changelog ==
 
+= 2.0 07/25/2019 =
+* FEATURE: Add support for CSV Import and Export of Languages attached to entries.
+* TWEAK: Use static method to register widget instead of deprecated function `create_function()`.
+* TWEAK: Set version as class constant.
+* TWEAK: Remove use of deprecated function `create_function()` when initiating the plugin.
+* TWEAK: Refactor plugin in singleton pattern.
+* BUG: Correct the default widget title string.
+* I18N: Update the POT file.
+* I18N: Introduce the Spanish (Mexican) translation.
+* OTHER: Remove blank newlines.
+* OTHER: Correct misspelling.
+* DEV: Update plugin header.
+* DEV: phpDoc corrections.
+
 = 1.1 06/27/2015 =
 * NEW: Add three more language per user request, Filipino, Indonesian and Slovenian.
 * TWEAK: Use esc_html() rather than eac_attr() for escaping the language when displaying it.
@@ -108,3 +122,6 @@ None yet....
 
 = 1.0 =
 Initial release.
+
+= 2.0 =
+It is recommended to backup before updating. Requires WordPress >= 4.7.12 and PHP >= 5.6.20 PHP version >= 7.1 recommended.
