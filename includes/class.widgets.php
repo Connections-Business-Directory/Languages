@@ -121,7 +121,7 @@ class CN_Languages_Widget extends WP_Widget {
 
 			// Setup the default widget options if they were not set when they were added to the sidebar;
 			// ie. the user did not click the "Save" button on the widget.
-			$title  = strlen( $option['title'] ) > 0 ? $option['title'] : __( 'Education Level', 'connections_languages' );
+			$title  = strlen( $option['title'] ) > 0 ? $option['title'] : __( 'Languages', 'connections_languages' );
 
 			// Setup the atts to be passed to the method that displays the data.
 			$atts = array();
