@@ -452,18 +452,19 @@ if ( ! class_exists('Connections_Languages') ) {
 		}
 
 		/**
+		 * Callback for the `cn_output_meta_field-languages` action.
+		 *
 		 * Renders the Languages content block.
 		 *
-		 * Called by the cn_meta_output_field-languages action in cnOutput->getMetaBlock().
+		 * @internal
+		 * @since 1.0
 		 *
-		 * @access private
-		 * @since  1.0
-
-		 * @param string $id    The field id.
-		 * @param array  $value The language codes (ISO 639-2, the alpha-3 code).
-		 * @param array  $atts  The shortcode atts array passed from the calling action.
+		 * @param string       $id     The field id.
+		 * @param array        $value  The language codes (ISO 639-2, the alpha-3 code).
+		 * @param cnEntry_HTML $object An instance of the cnEntry object.
+		 * @param array        $atts   The shortcode atts array passed from the calling action.
 		 */
-		public static function block( $id, $value, $object = NULL, $atts ) {
+		public static function block( $id, $value, $object, $atts ) {
 
 			echo '<ul class="cn-languages">';
 
