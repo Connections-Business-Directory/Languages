@@ -91,6 +91,14 @@ None yet....
 
 == Changelog ==
 
+= 2.0.1 05/07/2021 =
+* OTHER: Update link from `http` to `https`.
+* OTHER: Update copyright year.
+* OTHER: Update plugin header in README.txt.
+* I18N: Add German (Germany) translation.
+* DEV: Correct code alignment.
+* DEV: phpDoc corrections.
+
 = 2.0 07/25/2019 =
 * FEATURE: Add support for CSV Import and Export of Languages attached to entries.
 * TWEAK: Use static method to register widget instead of deprecated function `create_function()`.
@@ -125,3 +133,6 @@ Initial release.
 
 = 2.0 =
 It is recommended to backup before updating. Requires WordPress >= 4.7.12 and PHP >= 5.6.20 PHP version >= 7.1 recommended.
+
+= 2.0.1 =
+It is recommended to backup before updating. Requires WordPress >= 5.1 and PHP >= 5.6.20 PHP version >= 7.2 recommended.
