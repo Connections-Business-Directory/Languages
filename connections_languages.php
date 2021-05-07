@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Business Directory Extension - Languages
  * Plugin URI:        https://connections-pro.com/add-on/languages/
  * Description:       An extension for the Connections plugin which adds a metabox for languages.
- * Version:           2.0
+ * Version:           2.0.1
  * Author:            Steven A. Zahm
  * Author URI:        https://connections-pro.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! class_exists('Connections_Languages') ) {
 
 	class Connections_Languages {
 
-		const VERSION = '2.0';
+		const VERSION = '2.0.1';
 
 		/**
 		 * @var Connections_Languages Stores the instance of this class.
