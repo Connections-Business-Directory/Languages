@@ -206,11 +206,10 @@ if ( ! class_exists('Connections_Languages') ) {
 		 * @url http://www.nationsonline.org/oneworld/most_spoken_languages.htm
 		 * @url http://www.nationsonline.org/oneworld/languages.htm
 		 *
-		 * @access private
-		 * @since  1.0
-		 * @static
-		 * @uses   apply_filters()
-		 * @return array An indexed array containing the languages.
+		 * @since 1.0
+		 *
+		 * @return array An associative array containing the languages where
+		 * 				 the key is the ISO 639-2 language code and the value is the language.
 		 */
 		private static function languages() {
 
