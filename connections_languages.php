@@ -234,7 +234,11 @@ if ( ! class_exists('Connections_Languages') ) {
 				'vie' => __( 'Vietnamese', 'connections_languages'),
 			);
 
-			return apply_filters( 'cn_languages_options', $options );
+			$options = apply_filters( 'cn_languages_options', $options );
+
+			asort( $options, SORT_NATURAL );
+
+			return $options;
 		}
 
 		/**
